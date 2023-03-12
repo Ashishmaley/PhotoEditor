@@ -20,7 +20,6 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.photoeditor.photoeffect.SplashActivity.Companion.isFromSplash
 import com.photoeditor.photoblur.AdLoader
 import com.vorlonsoft.android.rate.AppRate
 import kotlinx.android.synthetic.main.activity_main.*
@@ -86,20 +85,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         AdLoader.ads.loadFullAdFacebook(this)
         AdLoader.ads.loadfullAdAdmob(this)
 
-        if (isFromSplash) {
-
-            getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
-            )
-            Handler().postDelayed(object : Runnable {
-                override fun run() {
-                    isFromSplash = false
-
-                    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-                }
-            }, 1000)
-        }
 
         if (Build.VERSION.SDK_INT >= 23) {
             if (chechkPermission()) {

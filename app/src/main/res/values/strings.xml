@@ -64,7 +64,7 @@
 
     <!--TODO : Replace  Facebook Ad ID here -->
     <string name="fb_adid">IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID</string>
-    
+
     <string name="background_image">Background Image</string>
     <string name="light_effect">Light Effect</string>
     <string name="resize">Resize</string>
@@ -93,5 +93,6 @@
     <string name="border_blur">Border Blur</string>
     <string name="done_save">Done|Save</string>
     <string name="reset">Reset</string>
+    <string name="welcome">Welcome To Photo Editor</string>
 
 </resources>

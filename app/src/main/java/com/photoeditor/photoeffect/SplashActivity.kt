@@ -1,33 +1,28 @@
 package com.photoeditor.photoeffect
 
 import android.content.Intent
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.facebook.ads.AudienceNetworkAds
-import com.google.android.gms.ads.MobileAds
+import android.widget.ImageView
+import android.widget.TextView
 
 class SplashActivity : AppCompatActivity() {
-
-    companion object {
-        var isFromSplash: Boolean = true
-    }
-
+private lateinit var  image: ImageView
+private lateinit var text:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-
-        //facebook Ads initialization
-        AudienceNetworkAds.isInAdsProcess(this)
-        AudienceNetworkAds.initialize(this)
-
-        //google Ads initialization
-        MobileAds.initialize(this){}
-        nextActivity()
-    }
-    fun nextActivity() {
-        isFromSplash = true
-        var intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finish()
+        image=findViewById(R.id.splashImage)
+        image.alpha=0f
+        text=findViewById(R.id.welcome)
+        text.alpha=0f
+        text.animate().setDuration(2000).alpha(1f)
+        image.animate().setDuration(2000).alpha(1f).withEndAction(){
+            overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
+            var intent=Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }
