@@ -20,7 +20,7 @@ private lateinit var text:TextView
         text.animate().setDuration(2000).alpha(1f)
         image.animate().setDuration(2000).alpha(1f).withEndAction(){
             overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
-            var intent=Intent(this,MainActivity::class.java)
+            var intent=Intent(this,SignUp_activity::class.java)
             startActivity(intent)
             finish()
         }
