@@ -12,7 +12,9 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.*
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
@@ -20,6 +22,7 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.firebase.auth.FirebaseAuth
 import com.photoeditor.photoblur.AdLoader
 import com.vorlonsoft.android.rate.AppRate
 import kotlinx.android.synthetic.main.activity_main.*
@@ -32,6 +35,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     var PICK_IMAGE: Int = 111
     var CAMERA_REQUEST: Int = 123
 
+    lateinit var toolbar: Toolbar
     lateinit var gallary_images: ArrayList<String>
     lateinit var adapter: ImageAdapter
 
@@ -103,7 +107,27 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         img_creation.setOnClickListener(this)
         img_back.setOnClickListener(this)
         img_next.setOnClickListener(this)
+        toolbar=findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.logout -> {
+                // Handle settings click
+                FirebaseAuth.getInstance().signOut()
+                intent=Intent(this,SignUp_activity::class.java)
+                startActivity(intent)
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
 
     fun setAdapter() {
 

@@ -23,8 +23,7 @@ class Login_Activity : AppCompatActivity() {
 
         // Click listener for the "Sign Up" text view to open the sign up activity
         binding.text1.setOnClickListener {
-            val intent = Intent(this, SignUp_activity::class.java)
-            startActivity(intent)
+           finish()
         }
 
         // Click listener for the login button to sign in the user with their email and password

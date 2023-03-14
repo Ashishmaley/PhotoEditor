@@ -108,5 +108,6 @@
     <string name="email">Email</string>
     <string name="login2">Login</string>
     <string name="have_an_account_login">have an account?Login</string>
+    <string name="logout">Logout</string>
 
 </resources>
