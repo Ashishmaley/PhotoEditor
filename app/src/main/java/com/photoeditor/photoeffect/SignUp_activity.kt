@@ -2,11 +2,13 @@ package com.photoeditor.photoeffect
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.photoeditor.photoeffect.databinding.ActivityLoginBinding
 import com.photoeditor.photoeffect.databinding.ActivitySignUpBinding
+import kotlinx.android.synthetic.main.activity_login.*
 
 class SignUp_activity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
@@ -27,11 +29,16 @@ class SignUp_activity : AppCompatActivity() {
             val pass = binding.editTextNumberPassword.text.toString()
             if (PASSWORD_PATTERN.matches(pass)) {
             if (email.isNotEmpty() && pass.isNotEmpty()) {
+                progressBar.visibility= View.VISIBLE
                 fireBaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
+                    progressBar.visibility= View.GONE
                     if (it.isSuccessful) {
                         Toast.makeText(this, "signUp completed", Toast.LENGTH_SHORT)
                         val intent = Intent(this, Login_Activity::class.java)
                         startActivity(intent)
+                    }
+                    else{
+                        Toast.makeText(this,"unsuccessful signup or user already exist",Toast.LENGTH_SHORT).show()
                     }
 
                 }

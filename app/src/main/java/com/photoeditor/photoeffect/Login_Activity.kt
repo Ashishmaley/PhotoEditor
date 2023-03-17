@@ -2,6 +2,8 @@ package com.photoeditor.photoeffect
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -11,6 +13,7 @@ import com.photoeditor.photoeffect.databinding.ActivitySignUpBinding
 class Login_Activity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var fireBaseAuth: FirebaseAuth
+    private lateinit var progressBar: ProgressBar
 
     // Regular expression to check if the password meets the required restrictions
     private val PASSWORD_PATTERN: Regex = Regex("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,}")
@@ -20,10 +23,11 @@ class Login_Activity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         fireBaseAuth = FirebaseAuth.getInstance()
+        progressBar = binding.progressBar
 
         // Click listener for the "Sign Up" text view to open the sign up activity
         binding.text1.setOnClickListener {
-           finish()
+            finish()
         }
 
         // Click listener for the login button to sign in the user with their email and password
@@ -33,11 +37,16 @@ class Login_Activity : AppCompatActivity() {
             if (email.isNotEmpty() && pass.isNotEmpty()) {
                 // Check if the password meets the required restrictions
                 if (PASSWORD_PATTERN.matches(pass)) {
+                    progressBar.visibility = View.VISIBLE
                     fireBaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
+                        progressBar.visibility = View.GONE
                         if (it.isSuccessful) {
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
+                        }else{
+                            Toast.makeText(this,"Login unsuccessful",Toast.LENGTH_SHORT).show()
                         }
+
                     }
                 } else {
                     // Display an error message if the password does not meet the required restrictions
