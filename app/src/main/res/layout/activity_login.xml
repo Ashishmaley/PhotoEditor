@@ -4,74 +4,90 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/img"
     android:orientation="vertical"
+    android:padding="24dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
     <TextView
         android:id="@+id/login"
         android:textSize="30sp"
         android:textColor="#2196F3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="200dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="@string/login2" />
-
-
-    <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp" />
+        android:padding="30dp"
+        android:layout_marginTop="160dp"
+        app:cardCornerRadius="30dp"
+        android:outlineAmbientShadowColor="@color/cardview_shadow_start_color"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editTextTextEmailAddress2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="8dp"
+                android:ems="10"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp" />
 
 
-    <EditText
-        android:id="@+id/editTextNumberPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:minHeight="48dp" />
+            <EditText
+                android:id="@+id/editTextNumberPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="8dp"
+                android:ems="10"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:minHeight="48dp" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:layout_marginTop="48dp"
-        android:background="@drawable/login_button_bk"
-        android:layout_marginEnd="120dp"
-        android:layout_marginStart="120dp"
-        android:text="@string/login" />
+            <Button
+                android:id="@+id/button"
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center"
+                android:background="@drawable/login_button_bk"
+                android:text="@string/login" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
 
     <TextView
         android:id="@+id/text1"
-        android:layout_width="wrap_content"
+        android:layout_width="183dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="right"
         android:layout_marginStart="100dp"
-        android:layout_marginEnd="24dp"
-        android:gravity="right"
-        android:text="@string/don_t_have_an_account_sign_up"
         android:layout_marginLeft="100dp"
-        android:layout_marginRight="24dp" />
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:padding="5dp"
+        android:text="@string/don_t_have_an_account_sign_up" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -79,7 +95,6 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
         android:outlineAmbientShadowColor="@color/black"
 
         />
