@@ -123,13 +123,13 @@
                         android:layout_width="27dp"
                         android:layout_height="50dp"
                         android:layout_marginTop="15dp"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="10dp"
                         android:layout_weight="1"
+                        android:elevation="1.5dp"
+                        android:onClick="detector"
                         android:adjustViewBounds="true"
                         android:background="@color/colorPrimaryDark"
-                        android:outlineAmbientShadowColor="@color/colorPrimaryDark"
-                        android:outlineSpotShadowColor="@color/cardview_shadow_end_color"
-                        app:cardBackgroundColor="#3F305B"
+                        app:cardBackgroundColor="#424047"
                         app:cardCornerRadius="5dp">
 
                         <androidx.cardview.widget.CardView
@@ -147,8 +147,7 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                >
+                                android:layout_height="match_parent">
 
                                 <ImageView
                                     android:layout_width="0dp"
@@ -192,8 +191,8 @@
                     <ImageView
                         android:id="@+id/btn_camera"
                         android:layout_width="0dp"
-                        android:layout_height="73dp"
-                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
                         android:adjustViewBounds="true"
                         android:foreground="?android:attr/selectableItemBackgroundBorderless"
                         android:src="@drawable/ic_camera"

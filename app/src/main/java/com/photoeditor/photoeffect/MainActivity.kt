@@ -397,4 +397,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
     }
+
+    fun detector(view: View) {
+        intent=Intent(this,Activity_Detector::class.java)
+        startActivity(intent)
+    }
 }

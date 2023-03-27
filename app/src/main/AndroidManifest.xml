@@ -20,17 +20,19 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
         <activity
+            android:name=".Activity_Detector"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
-           >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        </activity> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/Admob_AppID" />
@@ -58,9 +60,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".SignUp_activity"
-            android:exported="true" >
-        </activity>
-
+            android:exported="true"></activity>
         <activity
             android:name=".Login_Activity"
             android:exported="false" />
