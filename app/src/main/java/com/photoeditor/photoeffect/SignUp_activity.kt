@@ -42,6 +42,8 @@ class SignUp_activity : AppCompatActivity() {
                                         "Please verify your Email",
                                         Toast.LENGTH_LONG
                                     ).show()
+                                    val intent = Intent(this, Login_Activity::class.java)
+                                    startActivity(intent)
                                 }
                                 ?.addOnFailureListener {
                                     Toast.makeText(this, "Internet error", Toast.LENGTH_LONG).show()
@@ -71,12 +73,20 @@ class SignUp_activity : AppCompatActivity() {
         }
 
     }
-    override fun onStart() {
-        super.onStart()
-        if (fireBaseAuth.currentUser?.isEmailVerified == true) {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+        override fun onStart() {
+            super.onStart()
+            val currentUser = fireBaseAuth.currentUser
+            if (currentUser != null) {
+                if (currentUser.isEmailVerified) {
+                    // User is signed in and email is verified, navigate to main activity
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    // User is signed in but email is not verified, show message and log out
+                    Toast.makeText(this, "Please verify your email to continue", Toast.LENGTH_LONG).show()
+                    fireBaseAuth.signOut()
+                }
+            }
         }
-    }
 }
 

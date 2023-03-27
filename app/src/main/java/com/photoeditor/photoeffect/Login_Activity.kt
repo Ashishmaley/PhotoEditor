@@ -61,9 +61,17 @@ class Login_Activity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        if (fireBaseAuth.currentUser != null) {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+        val currentUser = fireBaseAuth.currentUser
+        if (currentUser != null) {
+            if (currentUser.isEmailVerified) {
+                // User is signed in and email is verified, navigate to main activity
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            } else {
+                // User is signed in but email is not verified, show message and log out
+                Toast.makeText(this, "Please verify your email to continue", Toast.LENGTH_LONG).show()
+                fireBaseAuth.signOut()
+            }
         }
     }
 }
