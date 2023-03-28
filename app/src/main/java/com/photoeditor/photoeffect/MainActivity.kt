@@ -398,8 +398,4 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         startActivity(intent)
     }
 
-    fun detector(view: View) {
-        intent=Intent(this,Activity_Detector::class.java)
-        startActivity(intent)
-    }
 }
