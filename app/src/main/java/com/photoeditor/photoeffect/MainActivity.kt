@@ -2,6 +2,7 @@ package com.photoeditor.photoeffect
 
 import android.Manifest
 import android.app.Activity
+import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -12,7 +13,6 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.*
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
@@ -26,6 +26,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.photoeditor.photoblur.AdLoader
 import com.vorlonsoft.android.rate.AppRate
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.custom_dlbox.*
 import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     var PICK_IMAGE: Int = 111
     var CAMERA_REQUEST: Int = 123
+    lateinit var dialog: Dialog
 
     lateinit var toolbar: Toolbar
     lateinit var gallary_images: ArrayList<String>
@@ -119,9 +121,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (item.itemId) {
             R.id.logout -> {
                 // Handle settings click
-                FirebaseAuth.getInstance().signOut()
-                intent=Intent(this,SignUp_activity::class.java)
-                startActivity(intent)
+                dialog=Dialog(this)
+                dialog.setContentView(R.layout.custom_dlbox)
+                var yButton = dialog.yesButton
+                var nButton = dialog.noButton
+                dialog.show()
+                yButton.setOnClickListener{
+                    FirebaseAuth.getInstance().signOut()
+                    intent=Intent(this,Login_Activity::class.java)
+                    startActivity(intent)
+                }
+                nButton.setOnClickListener{
+                    dialog.dismiss()
+                }
+
                 return true
             }
             else -> return super.onOptionsItemSelected(item)

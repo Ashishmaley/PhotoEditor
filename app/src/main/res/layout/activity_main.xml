@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/home_bg"
+    android:background="@drawable/mainbackground"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -17,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="61dp"
-            android:background="@color/mainbg"
+            android:background="#03050D21"
             android:elevation="5dp"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme">
@@ -25,11 +24,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <ImageView
+
+            <TextView
                 android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:src="@drawable/home_lbl"
-                android:layout_weight="4.5"/>
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:adjustViewBounds="true"
+                android:layout_weight="4.5"
+                android:paddingTop="14dp"
+
+                android:textSize="20sp"
+                android:fontFamily="@font/akronim"
+                />
 
             <ImageView
                 android:id="@+id/img_share"
@@ -65,6 +71,7 @@
                 android:layout_height="0dp"/>
 
         </LinearLayout>
+
         </androidx.appcompat.widget.Toolbar>
 
         <RelativeLayout
