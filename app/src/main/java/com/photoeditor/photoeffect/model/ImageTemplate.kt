@@ -3,9 +3,7 @@ package com.photoeditor.photoeffect.model
 import android.os.Parcel
 import android.os.Parcelable
 
-/**
- * Created by vanhu_000 on 3/17/2016.
- */
+
 open class ImageTemplate : ItemInfo {
     lateinit var languages: Array<Language?>
     var packageId: Long = 0
