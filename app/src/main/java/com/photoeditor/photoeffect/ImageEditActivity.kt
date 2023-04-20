@@ -727,7 +727,7 @@ class ImageEditActivity : AppCompatActivity(), View.OnClickListener,
     private var savedImageUri: Uri? = null
 
     fun saveBitmap(bitmap: Bitmap) {
-        val mainDir = File(Environment.getExternalStorageDirectory(), "AbhiEditor")
+        val mainDir = File(Environment.getExternalStorageDirectory(), "PhotoEditor")
         if (!mainDir.exists()) {
             if (mainDir.mkdir())
                 Log.e("Create Directory", "Main Directory Created : $mainDir")

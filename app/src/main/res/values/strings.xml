@@ -109,5 +109,7 @@
     <string name="login2">Login</string>
     <string name="have_an_account_login">have an account?Login</string>
     <string name="logout">Logout</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 </resources>

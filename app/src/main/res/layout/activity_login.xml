@@ -19,14 +19,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="@string/login2" />
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:padding="30dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="120dp"
         app:cardCornerRadius="30dp"
         android:outlineAmbientShadowColor="@color/cardview_shadow_start_color"
         android:layout_height="wrap_content" >
@@ -48,6 +47,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/editTextTextEmailAddress2"
                     android:padding="10dp"
+                    android:lines="1"
+                    android:singleLine="true"
                     android:hint="Email"
                     android:drawableStart="@drawable/baseline_email_24"
                     android:background="@drawable/login_button_bk"
@@ -69,6 +70,8 @@
                     android:id="@+id/editTextNumberPassword"
                     android:background="@drawable/login_button_bk"
                     android:ems="10"
+                    android:lines="1"
+                    android:singleLine="true"
                     android:inputType="textPassword"
                     android:hint="@string/password" />
             </com.google.android.material.textfield.TextInputLayout>

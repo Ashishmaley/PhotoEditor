@@ -1,5 +1,6 @@
 package com.photoeditor.photoeffect.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
@@ -39,7 +40,7 @@ class BackgroundAdapter(
         return mImages.size
     }
 
-    override fun onBindViewHolder(holder: BackgroundHolder, position: Int) {
+    override fun onBindViewHolder(holder: BackgroundHolder, @SuppressLint("RecyclerView") position: Int) {
 
         var inputStream = mContext.assets.open("background/" + mImages[position])
         var drawable = Drawable.createFromStream(inputStream, null)

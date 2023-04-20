@@ -88,7 +88,7 @@ class MyCreationActivity : AppCompatActivity() {
     }
 
     fun updateFileList() {
-        var path = Environment.getExternalStorageDirectory().toString() + "/abhiEditor"
+        var path = Environment.getExternalStorageDirectory().toString() + "/PhotoEditor"
         val directory = File(path)
         val files = directory.listFiles()
 
